@@ -1,3 +1,5 @@
+/* General style settings */
+
 body {
     background-color: lightgray;
 }
@@ -9,4 +11,34 @@ body {
     padding: 1.2%;
     box-sizing: border-box;
     box-shadow: 0 0 20px gray;
+}
+
+
+/* BUTTON related changes */
+
+button {
+    height: 100px;
+    width: 200px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+button:disabled {
+    height: 100px;
+    width: 200px;
+    filter: brightness(25%);
+}
+
+button:enabled {
+  filter: brightness(75%);
+}
+
+button:enabled:hover {
+    height: 100px;
+    width: 200px;
+    filter: brightness(100%);
+}
+
+img {
+    float:left;
 }
