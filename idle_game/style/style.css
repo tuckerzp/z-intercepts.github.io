@@ -1,0 +1,12 @@
+body {
+    background-color: lightgray;
+}
+
+.blog-post {
+    background-color: azure;
+    max-width: 800px;
+    margin: 2.5% auto;
+    padding: 1.2%;
+    box-sizing: border-box;
+    box-shadow: 0 0 20px gray;
+}
