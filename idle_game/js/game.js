@@ -1,5 +1,5 @@
 /* Global Variables */
-const entry_btn = document.getElementById("entry_btn");
+const entry_btn = document.getElementById('entry_img');
 const total_label = document.getElementById("total");
 const counter_label = document.getElementById("counter");
 
@@ -62,8 +62,8 @@ function makeStore(store) {
 
         let btn = document.createElement("button");
         btn.id = s.id + "_btn";
-        btn.innerHTML = `<img src=${s.img}><strong>${s.name}</strong> <br>
-            <em>Total: ${s.total} Cost: ${s.cost}</em>`;
+        btn.innerHTML = `<img src=${s.img} draggable="false"><div style="padding-top: 1.75em;"><strong>${s.name}</strong><br>
+            <em>Total: ${s.total} <br> Cost: ${s.cost}</em></div>`;
         btn.disabled = true;
         // Check for whether a button should be active or not
         entry_btn.addEventListener("click", () => {
@@ -76,8 +76,8 @@ function makeStore(store) {
                 phone_entries -= s.cost;
                 s.total++;
                 s.cost = Math.floor(s.cost * s.costmul);
-                btn.innerHTML = `<img src=${s.img}><strong>${s.name}</strong>
-                    <br> <em>Total: ${s.total} Cost: ${s.cost}</em>`;
+                btn.innerHTML = `<img src=${s.img} draggable="false"><div style="padding-top: 1.75em;"><strong>${s.name}</strong><br>
+                <em>Total: ${s.total} <br> Cost: ${s.cost}</em></div>`;
                 updateTotal(0); 
             }
             if (phone_entries < s.cost) {
@@ -121,4 +121,5 @@ window.setInterval(() => {
     updateTotal(phone_entries_pt);
     if (npc_click)
         entry_btn.click();
+    updateGUI();
 }, 1500);
