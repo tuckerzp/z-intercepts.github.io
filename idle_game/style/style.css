@@ -1,11 +1,14 @@
 /* General style settings */
 
 body {
+    font-family: Verdana, Geneva, Sans-Serif;
     background-image: url('../images/MockBackground.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    /*background-color: lightgray;*/
+    color: azure;
+    text-shadow: 0px 0px 7px black, 0px 0px 7px black, 0px 0px 7px black, 0px 0px 7px black, 
+    /*text border*/ -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .blog-post {
