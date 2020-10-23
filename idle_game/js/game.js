@@ -78,11 +78,13 @@ function makeStore(store) {
                 s.cost = Math.floor(s.cost * s.costmul);
                 btn.innerHTML = `<img src=${s.img} draggable="false"><div style="padding-top: 1.75em;"><strong>${s.name}</strong><br>
                 <em>Total: ${s.total} <br> Cost: ${s.cost}</em></div>`;
-                updateTotal(0); 
+                updateTotal(0);
             }
-            if (phone_entries < s.cost) {
-                btn.disabled = true;
-            }
+            store.forEach(function (s) {
+                if (phone_entries < s.cost) {
+                    document.getElementById(s.id + "_btn").disabled = true;
+                }
+            });
         });
 
         let span = document.createElement("span");
