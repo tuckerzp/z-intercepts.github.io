@@ -54,6 +54,7 @@ function getPerTick(store) {
 }
 
 function makeStore(store) {
+    console.log("Telephone books are the way of the future!")
     const parent = document.getElementById("store");
 
     store.forEach(function (s) {
@@ -67,7 +68,6 @@ function makeStore(store) {
         btn.disabled = true;
         // Check for whether a button should be active or not
         entry_btn.addEventListener("click", () => {
-            console.log ("phone: " + phone_entries + ", cost: " + s.cost);
             if (phone_entries >= s.cost)
                 btn.disabled = false;
         });
@@ -78,11 +78,13 @@ function makeStore(store) {
                 s.cost = Math.floor(s.cost * s.costmul);
                 btn.innerHTML = `<img src=${s.img} draggable="false"><div style="padding-top: 1.75em;"><strong>${s.name}</strong><br>
                 <em>Total: ${s.total} <br> Cost: ${s.cost}</em></div>`;
-                updateTotal(0); 
+                updateTotal(0);
             }
-            if (phone_entries < s.cost) {
-                btn.disabled = true;
-            }
+            store.forEach(function (s) {
+                if (phone_entries < s.cost) {
+                    document.getElementById(s.id + "_btn").disabled = true;
+                }
+            });
         });
 
         let span = document.createElement("span");
@@ -97,8 +99,8 @@ function makeStore(store) {
 
 function updateTotal(u) {
     phone_entries += u;
-    total_label.innerHTML = "Phone book entires: " + phone_entries;
-    counter_label.innerHTML = "Phone Entries per tick: " + phone_entries_pt;
+    total_label.innerHTML = "Phone Book Entries: " + phone_entries;
+    counter_label.innerHTML = "Entries per Tick: " + phone_entries_pt;
 }
 
 /* EVENTS */
@@ -121,5 +123,4 @@ window.setInterval(() => {
     updateTotal(phone_entries_pt);
     if (npc_click)
         entry_btn.click();
-    updateGUI();
 }, 1500);
